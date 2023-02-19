@@ -4,6 +4,8 @@ class AlertsPage:
     ALERT = (By.CSS_SELECTOR, '[onclick="jsAlert()"]')
     CONFIRM = (By.CSS_SELECTOR, '[onclick="jsConfirm()"]')
     PROMPT = (By.CSS_SELECTOR, '[onclick="jsPrompt()"]')
+    RESULT_TEXT = (By.ID, 'result')
+
     # URL
     URL = "https://the-internet.herokuapp.com/javascript_alerts"
 
@@ -30,6 +32,9 @@ class AlertsPage:
         alert = self.browser.switch_to.alert
         alert.dismiss()
 
-    def insert_alert(self, text):
+    def insert_text_in_alert(self, text):
         alert = self.browser.switch_to.alert
         alert.send_keys(text)
+
+    def get_text_from_result(self):
+        return self.browser.find_element(*self.RESULT_TEXT).text
