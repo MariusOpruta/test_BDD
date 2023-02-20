@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 class AddRemoveElementsPage:
     #locators
-    TITLE_TEXT = (By.CSS_SELECTOR, "#content")
+    TITLE_TEXT = (By.CSS_SELECTOR, "h3")
     ADD_ELEMENT_BUTTON = (By.CSS_SELECTOR, 'button[onclick="addElement()"]')
     DELETE_BUTTON = (By.CSS_SELECTOR, 'button[onclick="deleteElement()"]')
 
@@ -30,8 +30,6 @@ class AddRemoveElementsPage:
     def getNumberOfDeleteButton(self):
         return len(self.browser.find_elements(*self.DELETE_BUTTON))
 
-    def load_page(self):
-        pass
 
 
 
