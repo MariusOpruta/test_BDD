@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 class LoginPage:
-    #locators
+    LOGIN = (By.CSS_SELECTOR,'#content > ul > li:nth-child(21) > a')
     USERNAME_FIELD =(By.ID, 'username')
     PASSWORD_FIELD =(By.ID, 'password')
     LOGIN_BUTTON = (By.CLASS_NAME,'radius')
@@ -17,7 +17,8 @@ class LoginPage:
 
     def load_page(self):
         self.browser.get(self.URL)
-
+    # def login_page(self):
+    #     self.browser.find_element(*self.LOGIN).click()
     def insert_username_field(self, username):
         self.browser.find_element(*self.USERNAME_FIELD).send_keys(username)
 
